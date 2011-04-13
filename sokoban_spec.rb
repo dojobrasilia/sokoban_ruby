@@ -14,4 +14,20 @@ describe Board do
 		
 	end
 
+
+	it "should go left" do
+	  board_st = "####\n" +
+						 	 "# x#\n" + 
+							 "####"
+		
+	  board_st_result = "####\n" +
+						 	        "#x #\n" + 
+							        "####"
+											
+		b = Board.new(board_st)
+		b.left
+		b.current_board.should == board_st_result
+	end
+	
+	
 end
