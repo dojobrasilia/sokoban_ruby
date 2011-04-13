@@ -9,11 +9,15 @@ class Board
 	end
 	
 	def left
-		player_index = @board_m[1].index 'x'
+		line = @board_m.find do |line|
+			not line.index('x').nil?
+		end
+		
+		player_index = line.index 'x'
 
-		unless @board_m[1][player_index-1].chr == '#'
-			@board_m[1][player_index-1]='x'
-			@board_m[1][player_index]=' '
+		unless line[player_index-1].chr == '#'
+			line[player_index-1]='x'
+			line[player_index]=' '
 		end
 		
 	end
