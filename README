@@ -5,4 +5,46 @@ linguagem Ruby
 - entrada programática
 - tabuleiro ascii
 
+Fomos até:
+	
+	- Direita
+	- Esquerda
+	- Cima
 
+Falta:
+	- Baixo
+	- Caixas
+	- Empurrar caixas
+	- Ganhar
+
+RETRO
+	
+	13/04/2011
+	
+	Presentes:
+		- Rolim
+		- Pedroso
+		- Julio
+		- Fabs
+	
+	=]
+		- Rendeu
+			- problema evoluiu
+			- A mecânica fluiu
+		- Não discutimos coisas óbvias
+		- Vimos pontos em comum com problemas passados e usamos isso a nosso favor.
+			- Generalizar movimento com vetores, spiral_matrix
+		- refatoramos bastante e cedo
+			- Evitou de termos que fazer rewrite
+		- Comitamos bastante
+		- A idéia do Julio de Copiar e Colar para forçar um extract_method foi massa.
+		- Aprendemos o find
+		- O Júlio veio
+	=|
+		- Tem uma oportunidade de refactoring no unless
+	=[
+		- Teclado do mac sux
+		- Atrasamos como sempre
+		- Edson faltou
+		- Não temos tido pessoas novas
+	Questões:
