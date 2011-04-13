@@ -68,4 +68,18 @@ describe Board do
 		b.current_board.should == board_st
 	end
 	
+	it "should go right" do
+	  board_st = "####\n" +
+						 	 "#x #\n" + 
+							 "####"
+		
+	  board_st_result = "####\n" +
+						 	        "# x#\n" + 
+							        "####"
+											
+		b = Board.new(board_st)
+		b.right
+		b.current_board.should == board_st_result
+	end
+	
 end
