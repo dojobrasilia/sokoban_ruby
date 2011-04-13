@@ -82,4 +82,20 @@ describe Board do
 		b.current_board.should == board_st_result
 	end
 	
+	
+	it "should go up" do
+	    board_st = "####\n" +
+							 	 "#  #\n" + 
+							 	 "#x #\n" + 
+								 "####"
+
+		  board_st_result = "####\n" +
+							 	        "#x #\n" + 
+							 	        "#  #\n" + 
+								        "####"
+
+			b = Board.new(board_st)
+			b.up
+			b.current_board.should == board_st_result
+	end
 end
