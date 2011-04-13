@@ -9,8 +9,10 @@ class Board
 	end
 	
 	def left
-		@board_m[1][1]='x';
-		@board_m[1][2]=' ';
+		player_index = @board_m[1].index 'x'
+		
+		@board_m[1][player_index-1]='x'
+		@board_m[1][player_index]=' '
 	end
 	
 end
