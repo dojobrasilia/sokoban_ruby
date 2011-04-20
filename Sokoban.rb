@@ -39,7 +39,7 @@ class Board
 			    if @board[next_row][next_col].chr == 'c'
 			        unless @board[next_row + direction[:row]][next_col + direction[:col]].chr  == '#'
 			            move_player(next_row,next_col)
-			            @board[next_row + direction[:row]][next_col + direction[:col]= 'c'
+			            @board[next_row + direction[:row]][next_col + direction[:col]]= 'c'
 			        end
 			    else
 				    move_player(next_row,next_col)
