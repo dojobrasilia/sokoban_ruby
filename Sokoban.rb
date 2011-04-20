@@ -1,12 +1,11 @@
 class Board
 	
 	def initialize(board)
-	    @left = [0,-1]
-	    @right = [0,1]
-	    @up = [-1,0]
-	    @down = [1,0]
+	    @left  = {:row =>  0, :col => -1}
+	    @right = {:row =>  0, :col =>  1}
+	    @up    = {:row => -1, :col =>  0}
+	    @down  = {:row =>  1, :col =>  0}
 		@board = board.split("\n")
-	   
 	end
 	
 	def current_board
@@ -33,14 +32,14 @@ class Board
 		def move_to(direction)
 			@current = find_player_position
 			
-			next_row = @current[:row]+direction[0]
-			next_col = @current[:col]+direction[1]
+			next_row = @current[:row]+direction[:row]
+			next_col = @current[:col]+direction[:col]
 			
 			unless @board[next_row][next_col].chr == '#'
 			    if @board[next_row][next_col].chr == 'c'
-			        unless @board[next_row + direction[0]][next_col + direction[1]].chr  == '#'
+			        unless @board[next_row + direction[:row]][next_col + direction[:col]].chr  == '#'
 			            move_player(next_row,next_col)
-			            @board[next_row + direction[0]][next_col + direction[1]]= 'c'
+			            @board[next_row + direction[:row]][next_col + direction[:col]= 'c'
 			        end
 			    else
 				    move_player(next_row,next_col)
