@@ -5,12 +5,12 @@ class Board
 	    @right = [0,1]
 	    @up = [-1,0]
 	    @down = [1,0]
-		@board_m = board.split("\n")
+		@board = board.split("\n")
 	   
 	end
 	
 	def current_board
-		@board_m.join("\n")
+		@board.join("\n")
 	end
 	
 	def left
@@ -36,11 +36,11 @@ class Board
 			next_row_position = @current_position[:row]+direction[0]
 			next_col_position = @current_position[:col]+direction[1]
 			
-			unless @board_m[next_row_position][next_col_position].chr == '#'
-			    if @board_m[next_row_position][next_col_position].chr == 'c'
-			        unless @board_m[next_row_position + 1][next_col_position].chr  == '#'
+			unless @board[next_row_position][next_col_position].chr == '#'
+			    if @board[next_row_position][next_col_position].chr == 'c'
+			        unless @board[next_row_position + 1][next_col_position].chr  == '#'
 			            move_player(next_row_position,next_col_position)
-			            @board_m[next_row_position + 1][next_col_position]='c'
+			            @board[next_row_position + 1][next_col_position]='c'
 			        end
 			    else
 				    move_player(next_row_position,next_col_position)
@@ -49,18 +49,18 @@ class Board
 		end
 		
 		def find_player_position
-			line = @board_m.find do |line|
+			line = @board.find do |line|
 				not line.index('x').nil?
 			end
 			
-			row_index = @board_m.index(line)
+			row_index = @board.index(line)
 			col_index = line.index 'x'
 			
 			{:row => row_index, :col => col_index}
 		end
 		
 		def move_player(next_row_position,next_col_position)
-            @board_m[next_row_position][next_col_position]='x'
-	        @board_m[@current_position[:row]][@current_position[:col]]=' '
+            @board[next_row_position][next_col_position]='x'
+	        @board[@current_position[:row]][@current_position[:col]]=' '
 		end
 end
