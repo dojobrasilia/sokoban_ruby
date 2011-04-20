@@ -20,12 +20,17 @@ class Board
 		move_to(-1,0)
 	end
 	
+	def down
+		move_to(1,0)
+	end
+	
 	private 
 		def move_to(row, col)
 			current_position = find_player_position
 			
 			next_row_position = current_position[:row]+row
 			next_col_position = current_position[:col]+col
+			
 			unless @board_m[next_row_position][next_col_position].chr == '#'
 				@board_m[next_row_position][next_col_position]='x'
 				@board_m[current_position[:row]][current_position[:col]]=' '
