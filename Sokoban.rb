@@ -1,10 +1,6 @@
 class Board
 	
 	def initialize(board)
-	    @left  = {:row =>  0, :col => -1}
-	    @right = {:row =>  0, :col =>  1}
-	    @up    = {:row => -1, :col =>  0}
-	    @down  = {:row =>  1, :col =>  0}
 		@board = board.split("\n")
 	end
 	
@@ -13,19 +9,19 @@ class Board
 	end
 	
 	def left
-		move_to(@left) 
+		move_to({:row =>  0, :col => -1}) 
 	end
 	
 	def right
-		move_to(@right) 
+		move_to({:row =>  0, :col =>  1}) 
 	end
 	
 	def up
-		move_to(@up)
+		move_to({:row => -1, :col =>  0})
 	end
 	
 	def down
-		move_to(@down)
+		move_to({:row =>  1, :col =>  0})
 	end
 	
 	private 
@@ -37,7 +33,7 @@ class Board
 			
 			unless @board[next_row][next_col].chr == '#'
 			    if @board[next_row][next_col].chr == 'c'
-			        unless @board[next_row + direction[:row]][next_col + direction[:col]].chr  == '#'
+			        unless @board[next_row + direction[:row]][next_col + direction[:col]].chr  == '#' or  @board[next_row + direction[:row]][next_col + direction[:col]].chr  == 'c'
 			            move_player(next_row,next_col)
 			            @board[next_row + direction[:row]][next_col + direction[:col]]= 'c'
 			        end
