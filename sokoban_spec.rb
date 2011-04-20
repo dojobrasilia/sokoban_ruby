@@ -206,4 +206,41 @@ describe Board do
 	end
 	
 	
+	it "pushes the crate right" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "#xc #\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+
+	    board_st_result = "#####\n" +
+			 	          "#   #\n" + 
+    			     	  "# xc#\n" + 
+			 	          "#   #\n" + 
+				          "#####"
+
+		b = Board.new(board_st)
+		b.right
+		b.current_board.should == board_st_result
+	end
+	
+	it "should not push the crate right against the wall" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "# xc#\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+
+	    board_st_result = "#####\n" +
+			 	          "#   #\n" + 
+    			     	  "# xc#\n" + 
+			 	          "#   #\n" + 
+				          "#####"
+
+		b = Board.new(board_st)
+		b.right
+		b.current_board.should == board_st_result
+	end
+	
+	
 end
