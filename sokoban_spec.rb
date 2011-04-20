@@ -267,4 +267,17 @@ describe Board do
 		b.current_board.should == board_st
 	end
 	
+	it "should not push the crate up over another crate" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "# c #\n" + 
+			     	 "# c #\n" + 
+			     	 "# x #\n" + 
+				     "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.current_board.should == board_st
+	end
+	
 end
