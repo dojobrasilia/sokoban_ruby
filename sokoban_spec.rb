@@ -114,4 +114,22 @@ describe Board do
 			b.down
 			b.current_board.should == board_st_result
 	end
+	
+	it "should walk down in a bigger board" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "# x #\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+
+	    board_st_result = "#####\n" +
+			 	        "#   #\n" + 
+    			     	"#   #\n" + 
+			 	        "# x #\n" + 
+				        "#####"
+
+		b = Board.new(board_st)
+		b.down
+		b.current_board.should == board_st_result
+	end
 end
