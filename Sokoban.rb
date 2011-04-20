@@ -22,11 +22,13 @@ class Board
 	
 	private 
 		def move_to(row, col)
-			position = find_player_position
+			current_position = find_player_position
 			
-			unless @board_m[position[:row]+row][position[:col]+col].chr == '#'
-				@board_m[position[:row]+row][position[:col]+col]='x'
-				@board_m[position[:row]][position[:col]]=' '
+			next_row_position = current_position[:row]+row
+			next_col_position = current_position[:col]+col
+			unless @board_m[next_row_position][next_col_position].chr == '#'
+				@board_m[next_row_position][next_col_position]='x'
+				@board_m[current_position[:row]][current_position[:col]]=' '
 			end
 		end
 		

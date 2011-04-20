@@ -4,9 +4,9 @@ describe Board do
 
 	it 'should keep the board as it is' do
 		
-		board_st = "###\n" +
-						 	 "# #\n" + 
-							 "###"
+		board_st =   "###\n" +
+			     	 "# #\n" + 
+				     "###"
 						
 		b = Board.new(board_st)
 		
@@ -16,12 +16,12 @@ describe Board do
 
 	it "should go left" do
 	  board_st = "####\n" +
-						 	 "# x#\n" + 
-							 "####"
+			 	 "# x#\n" + 
+				 "####"
 		
 	  board_st_result = "####\n" +
-						 	        "#x #\n" + 
-							        "####"
+			 	        "#x #\n" + 
+				        "####"
 											
 		b = Board.new(board_st)
 		b.left
@@ -30,12 +30,12 @@ describe Board do
 	
 	it "should go left considering player column" do
 	  board_st = "#####\n" +
-						 	 "#  x#\n" + 
-							 "#####"
+			 	 "#  x#\n" + 
+				 "#####"
 		
 	  board_st_result = "#####\n" +
-						 	        "# x #\n" + 
-							        "#####"
+			 	        "# x #\n" + 
+				        "#####"
 											
 		b = Board.new(board_st)
 		b.left
@@ -44,14 +44,14 @@ describe Board do
 
 	it "should go left considering player line" do
 	  board_st = "#####\n" +
-						 	 "#   #\n" + 
-						 	 "#  x#\n" + 
-							 "#####"
+			 	 "#   #\n" + 
+			 	 "#  x#\n" + 
+				 "#####"
 		
 	  board_st_result = "#####\n" +
-						 	        "#   #\n" + 
-						 	        "# x #\n" + 
-							        "#####"
+			 	        "#   #\n" + 
+			 	        "# x #\n" + 
+				        "#####"
 											
 		b = Board.new(board_st)
 		b.left
@@ -60,8 +60,8 @@ describe Board do
 	
 	it "should not go left through the wall" do
 	  board_st = "#####\n" +
-						 	 "#x  #\n" + 
-							 "#####"
+			 	 "#x  #\n" + 
+				 "#####"
 		
 		b = Board.new(board_st)
 		b.left
@@ -70,12 +70,12 @@ describe Board do
 	
 	it "should go right" do
 	  board_st = "####\n" +
-						 	 "#x #\n" + 
-							 "####"
+			 	 "#x #\n" + 
+				 "####"
 		
 	  board_st_result = "####\n" +
-						 	        "# x#\n" + 
-							        "####"
+			 	        "# x#\n" + 
+				        "####"
 											
 		b = Board.new(board_st)
 		b.right
@@ -84,15 +84,15 @@ describe Board do
 	
 	
 	it "should go up" do
-	    board_st = "####\n" +
-							 	 "#  #\n" + 
-							 	 "#x #\n" + 
-								 "####"
+	    board_st =   "####\n" +
+			     	 "#  #\n" + 
+			     	 "#x #\n" + 
+				     "####"
 
 		  board_st_result = "####\n" +
-							 	        "#x #\n" + 
-							 	        "#  #\n" + 
-								        "####"
+				 	        "#x #\n" + 
+				 	        "#  #\n" + 
+					        "####"
 
 			b = Board.new(board_st)
 			b.up
