@@ -158,15 +158,9 @@ describe Board do
 			     	 "# c #\n" + 
 				     "#####"
 
-	    board_st_result = "#####\n" +
-			 	          "#   #\n" + 
-    			     	  "# x #\n" + 
-			 	          "# c #\n" + 
-				          "#####"
-
 		b = Board.new(board_st)
 		b.down
-		b.current_board.should == board_st_result
+		b.current_board.should == board_st
 	end
 	
     it "pushes the crate upwards" do
@@ -194,15 +188,9 @@ describe Board do
 			     	 "#   #\n" + 
 				     "#####"
 
-	    board_st_result = "#####\n" +
-			 	          "# c #\n" + 
-    			     	  "# x #\n" + 
-			 	          "#   #\n" + 
-				          "#####"
-
 		b = Board.new(board_st)
 		b.up
-		b.current_board.should == board_st_result
+		b.current_board.should == board_st
 	end
 	
 	
@@ -231,15 +219,9 @@ describe Board do
 			     	 "#   #\n" + 
 				     "#####"
 
-	    board_st_result = "#####\n" +
-			 	          "#   #\n" + 
-    			     	  "# xc#\n" + 
-			 	          "#   #\n" + 
-				          "#####"
-
 		b = Board.new(board_st)
 		b.right
-		b.current_board.should == board_st_result
+		b.current_board.should == board_st
 	end
 	
 	it "pushes the crate to the left" do
@@ -267,15 +249,9 @@ describe Board do
 			     	 "#   #\n" + 
 				     "#####"
 
-	    board_st_result = "#####\n" +
-			 	          "#   #\n" + 
-    			     	  "#cx #\n" + 
-			 	          "#   #\n" + 
-				          "#####"
-
 		b = Board.new(board_st)
 		b.left
-		b.current_board.should == board_st_result
+		b.current_board.should == board_st
 	end
 	
 	
