@@ -37,8 +37,14 @@ class Board
 			next_col_position = current_position[:col]+direction[1]
 			
 			unless @board_m[next_row_position][next_col_position].chr == '#'
-				@board_m[next_row_position][next_col_position]='x'
-				@board_m[current_position[:row]][current_position[:col]]=' '
+			    if @board_m[next_row_position][next_col_position].chr == 'c'
+			        @board_m[next_row_position][next_col_position]='x'
+				    @board_m[current_position[:row]][current_position[:col]]=' '
+				    @board_m[next_row_position + 1][next_col_position]='c'
+			    else
+				    @board_m[next_row_position][next_col_position]='x'
+				    @board_m[current_position[:row]][current_position[:col]]=' '
+				end
 			end
 		end
 		

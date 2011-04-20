@@ -132,4 +132,22 @@ describe Board do
 		b.down
 		b.current_board.should == board_st_result
 	end
+	
+	it "pushes the crate downward" do
+	    board_st =   "#####\n" +
+			     	 "# x #\n" + 
+			     	 "# c #\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+
+	    board_st_result = "#####\n" +
+			 	          "#   #\n" + 
+    			     	  "# x #\n" + 
+			 	          "# c #\n" + 
+				          "#####"
+
+		b = Board.new(board_st)
+		b.down
+		b.current_board.should == board_st_result
+	end
 end
