@@ -150,4 +150,23 @@ describe Board do
 		b.down
 		b.current_board.should == board_st_result
 	end
+	
+	it "should not push the crate down against the wall" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "# x #\n" + 
+			     	 "# c #\n" + 
+				     "#####"
+
+	    board_st_result = "#####\n" +
+			 	          "#   #\n" + 
+    			     	  "# x #\n" + 
+			 	          "# c #\n" + 
+				          "#####"
+
+		b = Board.new(board_st)
+		b.down
+		b.current_board.should == board_st_result
+	end
+	
 end

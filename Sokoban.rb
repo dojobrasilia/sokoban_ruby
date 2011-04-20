@@ -1,12 +1,12 @@
 class Board
 	
-	
 	def initialize(board)
 	    @left = [0,-1]
 	    @right = [0,1]
 	    @up = [-1,0]
 	    @down = [1,0]
 		@board_m = board.split("\n")
+	   
 	end
 	
 	def current_board
@@ -31,20 +31,20 @@ class Board
 	
 	private 
 		def move_to(direction)
-			current_position = find_player_position
+			@current_position = find_player_position
 			
-			next_row_position = current_position[:row]+direction[0]
-			next_col_position = current_position[:col]+direction[1]
+			next_row_position = @current_position[:row]+direction[0]
+			next_col_position = @current_position[:col]+direction[1]
 			
 			unless @board_m[next_row_position][next_col_position].chr == '#'
 			    if @board_m[next_row_position][next_col_position].chr == 'c'
-			        @board_m[next_row_position][next_col_position]='x'
-				    @board_m[current_position[:row]][current_position[:col]]=' '
-				    @board_m[next_row_position + 1][next_col_position]='c'
+			        unless @board_m[next_row_position + 1][next_col_position].chr  == '#'
+			            move_player(next_row_position,next_col_position)
+			            @board_m[next_row_position + 1][next_col_position]='c'
+			        end
 			    else
-				    @board_m[next_row_position][next_col_position]='x'
-				    @board_m[current_position[:row]][current_position[:col]]=' '
-				end
+				    move_player(next_row_position,next_col_position)
+				    end
 			end
 		end
 		
@@ -57,5 +57,10 @@ class Board
 			col_index = line.index 'x'
 			
 			{:row => row_index, :col => col_index}
+		end
+		
+		def move_player(next_row_position,next_col_position)
+            @board_m[next_row_position][next_col_position]='x'
+	        @board_m[@current_position[:row]][@current_position[:col]]=' '
 		end
 end
