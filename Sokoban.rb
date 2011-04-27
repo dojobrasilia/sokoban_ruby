@@ -35,7 +35,11 @@ class Board
 			    if @board[next_row][next_col].chr == 'c'
 			        unless @board[next_row + direction[:row]][next_col + direction[:col]].chr  == '#' or  @board[next_row + direction[:row]][next_col + direction[:col]].chr  == 'c'
 			            move_player(next_row,next_col)
-			            @board[next_row + direction[:row]][next_col + direction[:col]]= 'c'
+			            object_to_place = 'c'
+			            if (@board[next_row + direction[:row]][next_col + direction[:col]].chr == '.')
+			            	object_to_place = 'o'
+			            end
+			            @board[next_row + direction[:row]][next_col + direction[:col]]= object_to_place
 			        end
 			    else
 				    move_player(next_row,next_col)
