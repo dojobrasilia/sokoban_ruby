@@ -15,61 +15,86 @@ Fomos até:
 
 Falta:
 	- Objetivos
+		- Falta o caso de tirar a caixa do objetivo
 	- Ganhar
+	- Interação com o usuário
 
 RETRO
 	
 	13/04/2011
 	
-	Presentes:
-		- Rolim
-		- Pedroso
-		- Julio
-		- Fabs
+		Presentes:
+			- Rolim
+			- Pedroso
+			- Julio
+			- Fabs
 	
-	=]
-		- Rendeu
-			- problema evoluiu
-			- A mecânica fluiu
-		- Não discutimos coisas óbvias
-		- Vimos pontos em comum com problemas passados e usamos isso a nosso favor.
-			- Generalizar movimento com vetores, spiral_matrix
-		- refatoramos bastante e cedo
-			- Evitou de termos que fazer rewrite
-		- Comitamos bastante
-		- A idéia do Julio de Copiar e Colar para forçar um extract_method foi massa.
-		- Aprendemos o find
-		- O Júlio veio
-	=|
-		- Tem uma oportunidade de refactoring no unless
-	=[
-		- Teclado do mac sux
-		- Atrasamos como sempre
-		- Edson faltou
-		- Não temos tido pessoas novas
-	Questões:
+		=]
+			- Rendeu
+				- problema evoluiu
+				- A mecânica fluiu
+			- Não discutimos coisas óbvias
+			- Vimos pontos em comum com problemas passados e usamos isso a nosso favor.
+				- Generalizar movimento com vetores, spiral_matrix
+			- refatoramos bastante e cedo
+				- Evitou de termos que fazer rewrite
+			- Comitamos bastante
+			- A idéia do Julio de Copiar e Colar para forçar um extract_method foi massa.
+			- Aprendemos o find
+			- O Júlio veio
+		=|
+			- Tem uma oportunidade de refactoring no unless
+		=[
+			- Teclado do mac sux
+			- Atrasamos como sempre
+			- Edson faltou
+			- Não temos tido pessoas novas
+		Questões:
 	
 	20/04/2011
 	
-	Presentes:
-	    - Fabs
-	    - Julio
-	    - Arthur
-	    - Pedroso
-	    - Rolim
-	    - Sandra
-	    
-	=]
-        - Pessoa nova [Arthur]
-        - Fluiu bem.
-            - Seguimos bem o ciclo do TDD [Teste, Faz, Refactora]
-        - Galera participou bastante
-        - Sandra is back. We falate ingreis on the table.
-	   
-	=[
-	    - Falamos bagarai
-	    - Erramos vários commits
-	    - Linux é ruim pra galera da maçã [do octocat S2 S2] 
-	    - Começamos atrasados [17h15]
+		Presentes:
+			- Fabs
+			- Julio
+			- Arthur
+			- Pedroso
+			- Rolim
+			- Sandra
+			
+		=]
+		    - Pessoa nova [Arthur]
+		    - Fluiu bem.
+		        - Seguimos bem o ciclo do TDD [Teste, Faz, Refactora]
+		    - Galera participou bastante
+		    - Sandra is back. We falate ingreis on the table.
+		   
+		=[
+			- Falamos bagarai
+			- Erramos vários commits
+			- Linux é ruim pra galera da maçã [do octocat S2 S2] 
+			- Começamos atrasados [17h15]
 	
-	Questões:
+		Questões:
+	
+	27/04/2011
+	
+		Presentes:
+			- Fabs
+			- Sandra
+			- Lucas Lins
+			- Pedroso
+			- Julio (saiu mais cedo)
+			
+		=]
+			- Pessoa nova [Lucas]
+			- Fizemos um passo importante pro Jogo [os objetivos]
+			- Melhoramos o if maluko (débito antigo)
+			- Respeitamos mais a regra do silêncio
+		=[
+			- Ficamos quebrados por muito tempo várias vezes.
+			- Refatoramos no vermelho
+			- Não andamos muito com a implementação
+				- Não escrevemos muitos testes
+			- Começamos atrasados (30 minutos)
+		Questões:
+			- Podíamos revisar a retro passada no começo de uma nova sessão.
