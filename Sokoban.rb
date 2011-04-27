@@ -2,6 +2,12 @@ class Board
 	
 	def initialize(board)
 		@board = board.split("\n")
+		if is_goal(2,2) 
+			@goal = {:row => 2, :col => 2} 
+		else
+			@goal ={}
+		end
+			
 	end
 	
 	def current_board
@@ -34,20 +40,30 @@ class Board
 			after_next_row = next_row + direction[:row]
 			after_next_col = next_col + direction[:col]
 			
-			unless is_wall(next_row,next_col)
-			    if is_crate(next_row,next_col)
-			        unless is_wall(after_next_row,after_next_col) or is_crate(after_next_row, after_next_col)
-			            move_player(next_row,next_col)
-			            object_to_place = 'c'
-			            if (is_goal(after_next_row,after_next_col))
-			            	object_to_place = 'o'
-			            end
-			            @board[after_next_row][after_next_col]= object_to_place
-			        end
-			    else
-				    move_player(next_row,next_col)
-				end
+		    if is_crate(next_row,next_col)
+		    
+		        unless is_wall(after_next_row,after_next_col) or
+		        	   is_crate(after_next_row, after_next_col)
+		        	   
+		            move_player(next_row,next_col)
+		            object_to_place = 'c'
+		            
+		            if (is_goal(after_next_row,after_next_col))
+		            	object_to_place = 'o'
+		            end
+		            
+		            @board[after_next_row][after_next_col]= object_to_place
+		            
+		            
+		        end
+		        
+		    elsif not is_wall(next_row,next_col)
+			    move_player(next_row,next_col)
+			    if @current[:row] == @goal[:row] and @current[:col] == @goal[:col]
+			    	@board[@current[:row]][@current[:col]]= '.'
+			    end	  
 			end
+			
 			
 		end
 		
@@ -70,6 +86,17 @@ class Board
 			
 			row_index = @board.index(line)
 			col_index = line.index 'x'
+			
+			{:row => row_index, :col => col_index}
+		end
+		
+		def find_goal_position
+			line = @board.find do |line|
+				not line.index('.').nil?
+			end
+			
+			row_index = @board.index(line)
+			col_index = line.index '.'
 			
 			{:row => row_index, :col => col_index}
 		end
