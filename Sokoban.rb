@@ -31,15 +31,18 @@ class Board
 			next_row = @current[:row]+direction[:row]
 			next_col = @current[:col]+direction[:col]
 			
+			after_next_row = next_row + direction[:row]
+			after_next_col = next_col + direction[:col]
+			
 			unless is_wall(next_row,next_col)
 			    if is_crate(next_row,next_col)
-			        unless is_wall(next_row + direction[:row],next_col + direction[:col]) or  is_crate(next_row + direction[:row],next_col + direction[:col])
+			        unless is_wall(after_next_row,after_next_col) or is_crate(after_next_row, after_next_col)
 			            move_player(next_row,next_col)
 			            object_to_place = 'c'
-			            if (is_goal(next_row + direction[:row],next_col + direction[:col]))
+			            if (is_goal(after_next_row,after_next_col))
 			            	object_to_place = 'o'
 			            end
-			            @board[next_row + direction[:row]][next_col + direction[:col]]= object_to_place
+			            @board[after_next_row][after_next_col]= object_to_place
 			        end
 			    else
 				    move_player(next_row,next_col)
