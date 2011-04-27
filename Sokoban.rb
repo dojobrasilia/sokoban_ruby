@@ -1,9 +1,5 @@
 class Board
 
-	def goals
-		@goals
-	end
-	
 	def initialize(board)
 		@board = board.split("\n")
 		populate_goals
