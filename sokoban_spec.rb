@@ -321,4 +321,28 @@ describe Board do
 		b.down
 		b.current_board.should == board_st
 	end
+	
+	it "should recognize a player on top of a goal" do
+	    board_st =   "#####\n" +
+			     	 "# . #\n" + 
+			     	 "# . #\n" + 
+			     	 "# x #\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+				     
+		board_st_result =    "#####\n" +
+						 	 "# .x#\n" + 
+						 	 "# . #\n" + 
+						 	 "#   #\n" + 
+						 	 "#   #\n" + 
+							 "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.up
+		b.right
+		b.current_board.should == board_st_result
+		
+		
+	end
 end

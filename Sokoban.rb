@@ -3,9 +3,9 @@ class Board
 	def initialize(board)
 		@board = board.split("\n")
 		if is_goal(2,2) 
-			@goal = {:row => 2, :col => 2} 
+			@goals = [{:row => 2, :col => 2},{:row => 1, :col => 2}]
 		else
-			@goal ={}
+			@goals =[]
 		end
 			
 	end
@@ -59,7 +59,11 @@ class Board
 		        
 		    elsif not is_wall(next_row,next_col)
 			    move_player(next_row,next_col)
-			    if @current[:row] == @goal[:row] and @current[:col] == @goal[:col]
+			    found_goal = @goals.find do |g|
+					@current[:row] == g[:row] and @current[:col] == g[:col]
+				end
+			    
+			    unless found_goal.nil?
 			    	@board[@current[:row]][@current[:col]]= '.'
 			    end	  
 			end
@@ -89,6 +93,7 @@ class Board
 			
 			{:row => row_index, :col => col_index}
 		end
+		
 		
 		def find_goal_position
 			line = @board.find do |line|
