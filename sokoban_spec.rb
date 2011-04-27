@@ -345,4 +345,20 @@ describe Board do
 		
 		
 	end
+	
+	
+	it 'should find the correct goals' do
+		board_st =   "#####\n" +
+			     	 "# . #\n" + 
+			     	 "# . #\n" + 
+			     	 "# x #\n" + 
+			     	 "#   #\n" + 
+				     "#####"
+				     
+		b = Board.new(board_st)
+		
+		b.goals.should == [{:row=>1,:col=>2},{:row=>2,:col=>2}]
+		
+	end
+	
 end

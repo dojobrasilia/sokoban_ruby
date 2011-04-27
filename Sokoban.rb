@@ -1,13 +1,12 @@
 class Board
+
+	def goals
+		@goals
+	end
 	
 	def initialize(board)
 		@board = board.split("\n")
-		if is_goal(2,2) 
-			@goals = [{:row => 2, :col => 2},{:row => 1, :col => 2}]
-		else
-			@goals =[]
-		end
-			
+		populate_goals
 	end
 	
 	def current_board
@@ -53,19 +52,10 @@ class Board
 		            end
 		            
 		            @board[after_next_row][after_next_col]= object_to_place
-		            
-		            
 		        end
 		        
 		    elsif not is_wall(next_row,next_col)
 			    move_player(next_row,next_col)
-			    found_goal = @goals.find do |g|
-					@current[:row] == g[:row] and @current[:col] == g[:col]
-				end
-			    
-			    unless found_goal.nil?
-			    	@board[@current[:row]][@current[:col]]= '.'
-			    end	  
 			end
 			
 			
@@ -94,20 +84,33 @@ class Board
 			{:row => row_index, :col => col_index}
 		end
 		
-		
-		def find_goal_position
-			line = @board.find do |line|
-				not line.index('.').nil?
+		def populate_goals
+			@goals = []
+			
+			@board.each_with_index do |line,row|
+				col = 0
+				line.each_char do |char| 
+					if (char == '.')
+						@goals << {:row => row, :col => col}
+					end
+					col+=1
+				end
+				
 			end
 			
-			row_index = @board.index(line)
-			col_index = line.index '.'
-			
-			{:row => row_index, :col => col_index}
 		end
 		
 		def move_player(next_row,next_col)
             @board[next_row][next_col]='x'
-	        @board[@current[:row]][@current[:col]]=' '
+	        
+	        found_goal = @goals.find do |g|
+				@current[:row] == g[:row] and @current[:col] == g[:col]
+			end
+		    
+		    if found_goal
+		    	@board[@current[:row]][@current[:col]]= '.'
+		    else
+		    	@board[@current[:row]][@current[:col]]=' '
+		    end	
 		end
 end
