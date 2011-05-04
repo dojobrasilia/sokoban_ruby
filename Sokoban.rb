@@ -25,6 +25,16 @@ class Board
 		move_to({:row =>  1, :col =>  0})
 	end
 	
+	def is_finished
+		@board[1].each_char do |letter|
+			if letter == 'o'
+				return true
+			end
+		end
+		
+		false
+	end
+	
 	private 
 		def move_to(direction)
 			@current = find_player_position

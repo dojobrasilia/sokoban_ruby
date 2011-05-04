@@ -385,4 +385,40 @@ describe Board do
 		b.up
 		b.current_board.should == board_st_result
 	end
+	
+	it "should be fail by default" do
+	    board_st =   "#####\n" +
+			     	 "#c. #\n" + 
+			     	 "# x #\n" + 
+				     "#####"
+
+		b = Board.new(board_st)
+		b.is_finished.should == false
+	end
+	
+	it "should win with a single achievable goal" do
+	    board_st =   "#####\n" +
+			     	 "# . #\n" + 
+			     	 "# c #\n" + 
+ 			     	 "# x #\n" + 
+				     "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.is_finished.should == true
+	end
+	
+	xit "should win with a single achievable goal in another goal point" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" +
+			     	 "# . #\n" + 
+			     	 "# c #\n" + 
+ 			     	 "# x #\n" + 
+				     "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.is_finished.should == true
+	end
+	
 end
