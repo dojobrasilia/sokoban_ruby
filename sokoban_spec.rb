@@ -408,7 +408,7 @@ describe Board do
 		b.is_finished.should == true
 	end
 	
-	xit "should win with a single achievable goal in another goal point" do
+	it "should win with a single achievable goal in another goal point" do
 	    board_st =   "#####\n" +
 			     	 "#   #\n" +
 			     	 "# . #\n" + 
@@ -419,6 +419,21 @@ describe Board do
 		b = Board.new(board_st)
 		b.up
 		b.is_finished.should == true
+	end
+		
+	it "should not win when there are more crates to put into goals" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" +
+			     	 "# ..#\n" + 
+			     	 "# cc#\n" + 
+ 			     	 "# x #\n" + 
+				     "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.down
+		b.right
+		b.is_finished.should == false
 	end
 	
 end

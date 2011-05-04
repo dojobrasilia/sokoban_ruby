@@ -26,13 +26,16 @@ class Board
 	end
 	
 	def is_finished
-		@board[1].each_char do |letter|
-			if letter == 'o'
-				return true
+		count = 0
+		@board.each do |line| 
+			line.each_char do |letter|
+				if letter == 'o'
+					count = count + 1
+				end
 			end
 		end
 		
-		false
+		return count == @goals.length
 	end
 	
 	private 
