@@ -62,7 +62,7 @@ class Board
 		end
 		
 		def is_crate(row, col)
-			@board[row][col].chr == 'c'
+			@board[row][col].chr == 'c' or @board[row][col].chr == 'o' 
 		end
 		
 		def is_goal(row, col)

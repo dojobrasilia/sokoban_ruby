@@ -342,8 +342,47 @@ describe Board do
 		b.up
 		b.right
 		b.current_board.should == board_st_result
-		
-		
 	end
 	
+	it "should not remove a crate when exiting a goal" do
+	    board_st =   "#####\n" +
+			     	 "#   #\n" + 
+			     	 "# . #\n" + 
+			     	 "# c #\n" + 
+			     	 "# x #\n" + 
+				     "#####"
+				     
+		board_st_result =    "#####\n" +
+						 	 "# c #\n" + 
+						 	 "# x #\n" + 
+						 	 "#   #\n" + 
+						 	 "#   #\n" + 
+							 "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.up
+		b.current_board.should == board_st_result
+	end
+
+	it "should not lose that a crate is above a goal after a second movement" do
+	    board_st =   "#####\n" +
+			     	 "# . #\n" + 
+			     	 "# . #\n" + 
+			     	 "# c #\n" + 
+			     	 "# x #\n" + 
+				     "#####"
+				     
+		board_st_result =    "#####\n" +
+						 	 "# o #\n" + 
+						 	 "# x #\n" + 
+						 	 "#   #\n" + 
+						 	 "#   #\n" + 
+							 "#####"
+
+		b = Board.new(board_st)
+		b.up
+		b.up
+		b.current_board.should == board_st_result
+	end
 end
